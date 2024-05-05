@@ -1,12 +1,12 @@
 import logo from "../../../assets/logo.svg";
 const Footer = () => {
   return (
-    <footer className="relative z-10 mt-44 bg-[#151515] dark:bg-dark pt-20 pb-10 lg:pt-[120px] lg:pb-20">
+    <footer className="relative z-10 mt-44 bg-[#151515] dark:bg-dark pt-10 lg:pt-[78px]">
       <div className="container mx-auto">
-        <div className="flex flex-wrap -mx-4">
+        <div className="flex flex-wrap mx-6">
           <div className="w-full px-4 sm:w-2/3 lg:w-3/12">
             <div className="w-full mb-10">
-              <div className="mb-6 inline-block max-w-[160px]">
+              <div className="mb-10 inline-block max-w-[160px]">
                 <img src={logo} alt="logo" className="max-w-full dark:hidden" />
               </div>
               <p className="text-base text-body-color text-[#F3F3F3] dark:text-dark-6 mb-7">
