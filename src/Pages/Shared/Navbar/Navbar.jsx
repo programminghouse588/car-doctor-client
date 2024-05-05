@@ -1,8 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../../../assets/logo.svg";
+import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../../Firebase/Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result?.user);
+        toast.success("User logged out Successfully");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <nav className="bg-gray-800 md:py-3 py-2 w-full">
@@ -42,14 +57,28 @@ const Navbar = () => {
             </div>
           </div>
           <div className="hidden md:block">
-            <div className="ml-4 flex items-center md:ml-6">
-              <button className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-xl italic font-semibold">
-                Log in
+            {user ? (
+              <button
+                onClick={handleSignOut}
+                className="btn btn-primary text-lg text-white font-bold italic"
+              >
+                Log Out
               </button>
-              <button className="ml-4 text-gray-300 bg-indigo-600 hover:bg-indigo-700 px-3 py-2 rounded-md text-xl font-semibold italic text-center">
-                Sign up
-              </button>
-            </div>
+            ) : (
+              <div className="ml-4 flex items-center md:ml-6">
+                <NavLink to="/login">
+                  <button className="hover:bg-gray-700 text-white px-3 py-2 rounded-md text-xl italic font-semibold">
+                    Log in
+                  </button>
+                </NavLink>
+
+                <NavLink to="/signUp">
+                  <button className="ml-4 text-gray-300 bg-indigo-600 hover:bg-indigo-700 px-3 py-2 rounded-md text-xl font-semibold italic text-center">
+                    Sign up
+                  </button>
+                </NavLink>
+              </div>
+            )}
           </div>
           <div className="-mr-2 flex md:hidden">
             <button
@@ -116,12 +145,29 @@ const Navbar = () => {
           >
             Contact
           </a>
-          <button className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-xl font-semibold italic">
-            Log in
-          </button>
-          <button className="text-gray-300 bg-indigo-600 hover:bg-indigo-700 block px-3 py-2 rounded-md text-xl italic font-semibold">
-            Sign up
-          </button>
+
+          {user ? (
+            <button
+              onClick={handleSignOut}
+              className="btn btn-primary text-lg text-white font-bold italic"
+            >
+              Log Out
+            </button>
+          ) : (
+            <>
+              <NavLink to="/login">
+                <button className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-xl font-semibold italic">
+                  Log in
+                </button>
+              </NavLink>
+
+              <NavLink to="/signUp">
+                <button className="text-gray-300 bg-indigo-600 hover:bg-indigo-700 block px-3 py-2 rounded-md text-xl italic font-semibold">
+                  Sign up
+                </button>
+              </NavLink>
+            </>
+          )}
         </div>
       </div>
     </nav>

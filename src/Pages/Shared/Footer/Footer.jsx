@@ -63,7 +63,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8] hover:text-primary dark:text-dark-6"
                   >
                     Our Products
@@ -71,7 +71,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8]  hover:text-primary dark:text-dark-6"
                   >
                     User Flow
@@ -79,7 +79,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8] hover:text-primary dark:text-dark-6"
                   >
                     User Strategy
@@ -96,7 +96,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8] hover:text-primary dark:text-dark-6"
                   >
                     About TailGrids
@@ -104,7 +104,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8] hover:text-primary dark:text-dark-6"
                   >
                     Contact &amp; Support
@@ -112,7 +112,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8]  hover:text-primary dark:text-dark-6"
                   >
                     Success History
@@ -120,7 +120,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8] hover:text-primary dark:text-dark-6"
                   >
                     Setting &amp; Privacy
@@ -137,7 +137,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8]  hover:text-primary dark:text-dark-6"
                   >
                     Premium Support
@@ -145,7 +145,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8] hover:text-primary dark:text-dark-6"
                   >
                     Our Services
@@ -153,7 +153,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8] hover:text-primary dark:text-dark-6"
                   >
                     Know Our Team
@@ -161,7 +161,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href=""
                     className="inline-block text-base leading-loose text-[#E8E8E8]  hover:text-primary dark:text-dark-6"
                   >
                     Download App
@@ -190,7 +190,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="javascript:void(0)"
+                  href=""
                   className="flex items-center justify-center w-8 h-8 mr-3 border rounded-full border-primary bg-primary border-stroke dark:border-dark-3 dark:border-primary dark:text-white text-white sm:mr-4 lg:mr-3 xl:mr-4"
                 >
                   <svg
@@ -203,7 +203,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="javascript:void(0)"
+                  href=""
                   className="flex items-center justify-center w-8 h-8 mr-3 border rounded-full border-primary bg-primary border-stroke dark:border-dark-3 dark:border-primary dark:text-white text-white sm:mr-4 lg:mr-3 xl:mr-4"
                 >
                   <svg
@@ -216,7 +216,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="javascript:void(0)"
+                  href=""
                   className="flex items-center justify-center w-8 h-8 mr-3 border rounded-full border-primary bg-primary border-stroke dark:border-dark-3 dark:border-primary dark:text-white text-white sm:mr-4 lg:mr-3 xl:mr-4"
                 >
                   <svg
