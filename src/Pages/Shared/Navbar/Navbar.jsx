@@ -3,16 +3,20 @@ import logo from "../../../assets/logo.svg";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Firebase/Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     logOut()
       .then((result) => {
         console.log(result?.user);
         toast.success("User logged out Successfully");
+        navigate("/login");
       })
       .catch((error) => {
         console.error(error);
@@ -29,30 +33,68 @@ const Navbar = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-3">
-                <a
-                  href="#"
-                  className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
-                >
-                  Home
-                </a>
-                <a
-                  href="#"
-                  className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
-                >
-                  About
-                </a>
-                <a
-                  href="#"
-                  className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
-                >
-                  Services
-                </a>
-                <a
-                  href="#"
-                  className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
-                >
-                  Contact
-                </a>
+                {user ? (
+                  <>
+                    <NavLink
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                      to="/"
+                    >
+                      Home
+                    </NavLink>
+                    <a
+                      href="#"
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                    >
+                      About
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                    >
+                      Services
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                    >
+                      Contact
+                    </a>
+
+                    <NavLink
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                      to="/bookings"
+                    >
+                      My Bookings
+                    </NavLink>
+                  </>
+                ) : (
+                  <>
+                    <NavLink
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                      to="/"
+                    >
+                      Home
+                    </NavLink>
+                    <a
+                      href="#"
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                    >
+                      About
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                    >
+                      Services
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                    >
+                      Contact
+                    </a>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -121,35 +163,73 @@ const Navbar = () => {
 
       <div className={`${isOpen ? "block" : "hidden"} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="#"
-            className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
-          >
-            Home
-          </a>
-          <a
-            href="#"
-            className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
-          >
-            About
-          </a>
-          <a
-            href="#"
-            className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
-          >
-            Services
-          </a>
-          <a
-            href="#"
-            className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
-          >
-            Contact
-          </a>
+          {user ? (
+            <>
+              <NavLink
+                className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
+                to="/"
+              >
+                Home
+              </NavLink>
+              <a
+                href="#"
+                className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
+              >
+                About
+              </a>
+              <a
+                href="#"
+                className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
+              >
+                Services
+              </a>
+              <a
+                href="#"
+                className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
+              >
+                Contact
+              </a>
+
+              <NavLink
+                className="hover:border-b-2 hover:border-cyan-600 text-white px-3 py-2 rounded-md text-xl italic font-semibold"
+                to="/bookings"
+              >
+                My Bookings
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink
+                className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
+                to="/"
+              >
+                Home
+              </NavLink>
+              <a
+                href="#"
+                className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
+              >
+                About
+              </a>
+              <a
+                href="#"
+                className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
+              >
+                Services
+              </a>
+              <a
+                href="#"
+                className="hover:bg-gray-700 italic text-white block px-3 py-2 rounded-md text-lg font-semibold"
+              >
+                Contact
+              </a>
+            </>
+          )}
 
           {user ? (
             <button
               onClick={handleSignOut}
-              className="btn btn-primary text-lg text-white font-bold italic"
+              className="btn btn-primary text-lg mx-6 text-white font-bold italic"
             >
               Log Out
             </button>
