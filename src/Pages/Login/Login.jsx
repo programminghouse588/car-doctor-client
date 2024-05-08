@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Firebase/Provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Login = () => {
   const { signInUser } = useContext(AuthContext);
@@ -19,14 +20,26 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
     signInUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const user = { email };
         form.reset();
         toast.success("User logged in Successfully!");
-        navigate(location?.state ? location.state : "/");
+
+        // navigate(location?.state ? location.state : "/");
+
+        // get access token
+        axios
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(location?.state ? location.state : "/");
+            }
+          });
       })
       .then((error) => console.log(error));
   };
@@ -62,7 +75,7 @@ const Login = () => {
                   </span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   placeholder="Enter Password"
                   className="input input-bordered"
